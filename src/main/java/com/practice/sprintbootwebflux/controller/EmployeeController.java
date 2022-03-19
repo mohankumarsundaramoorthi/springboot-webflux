@@ -18,13 +18,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    //Asynchronous and blocking operation
+    //Blocking operation
     @GetMapping
     public List<Employee> getAllEmployees() {
         return service.loadAllEmployees();
     }
 
-    //Leveraging Flux for non-blocking operation
+    //Leveraging Flux for asynchronous and non-blocking operation
     @GetMapping(value = "/stream",produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<Employee> getAllEmployeesStream() {
         return service.loadAllEmployeesStream();

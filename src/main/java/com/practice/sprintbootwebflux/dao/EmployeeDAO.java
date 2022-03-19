@@ -20,7 +20,6 @@ public class EmployeeDAO {
         }
     }
 
-    //This is asynchronous and blocking operation
     public List<Employee> getEmployees()  {
         return IntStream.rangeClosed(1, 10)
                 .peek(this::sleepExecution)
